@@ -1,0 +1,106 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>confirm</title>
+    <style>
+        header{
+            position: relative;
+            top: 0;
+            left: 0;
+            height: 8vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background:#d3dbff;
+            /* opacity: 0.7; */
+            font-family: 'Poppins', sans-serif;
+            /* z-index: 10000; */
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+          
+         
+        }
+        header .logobx{
+            position: relative;
+            
+            left: 40px;
+            width: 150px;
+            height: 41px;
+        }
+        header .logobx .logo{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        header .logobx .logo img{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            top: 5px;
+            margin-right: 2px;
+            
+        }
+        header .logobx .logo a{
+            position: relative;
+            text-decoration: none;
+            font-size: 1.3rem;
+            top: 5px;
+            font-weight: 600;
+            color:#251f44;
+            
+        }
+        a{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+        }
+        @media only screen and (max-width: 580px){
+            form div{
+                position: relative;
+                width: 100px;
+                
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logobx">
+            <div class="logo">
+                <img src="{% static '\task\icon.png' %}">
+                <a href="#">To-Do app</a>
+            </div>
+        </div>
+        
+    </header>
+
+    <h2 style="text-align: center;">Are you sure you want to delete "{{item}}"?</h2>
+    <a href="{% url 'list'  %}" ><button type="submit"  class="btn btn-primary" >Cancle</button></a>
+
+    <form action="" method="POST" class="form-inline">
+        {% csrf_token%}
+        
+       <div> <input type="submit" class="form-control  btn-danger" name="confirm" style="margin-top: 5px;"></div>
+    </form>
+
+</body>
+
+</html>

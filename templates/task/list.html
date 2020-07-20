@@ -1,0 +1,445 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <title>To-Do</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        body {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url('{% static "\task\tech.jpg" %}');
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-repeat: repeat-y;
+            background-size: cover;
+        }
+
+        header {
+            position: relative;
+            top: 0;
+            left: 0;
+            height: 8vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #d3dbff;
+            /* opacity: 0.7; */
+            font-family: 'Poppins', sans-serif;
+            /* z-index: 10000; */
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+
+
+        }
+
+        header .logobx {
+            position: relative;
+
+            left: 40px;
+            width: 150px;
+            height: 41px;
+        }
+
+        header .logobx .logo {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        header .logobx .logo img {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            top: 5px;
+            margin-right: 2px;
+
+        }
+
+        header .logobx .logo a {
+            position: relative;
+            text-decoration: none;
+            font-size: 1.3rem;
+            top: 5px;
+            font-weight: 600;
+            color: #251f44;
+        }
+        @media only screen and (max-width: 565px){
+            header .logobx .logo img{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+                top: 5px;
+               
+                
+            }
+            header .logobx .logo a{
+                position: relative;
+                text-decoration: none;
+                font-size: 1rem;
+                top: 5px;
+                font-weight: 400;
+                color: #251f44;
+
+            }
+            header .logobx{
+                left: 10px;
+            }
+            header .linkbx{
+                
+                width: 219px;
+                height: 100%;
+                
+
+            }
+            header .linkbx ul{
+                margin-top: 6px;
+            }
+        }
+        
+
+        header .linkbx {
+            position: relative;
+            width: 300px;
+            height: 100%;
+            margin-right: 20px;
+        }
+
+        header .linkbx ul {
+            position: relative;
+            margin-top: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        header .linkbx li {
+            position: relative;
+            margin: 15px;  
+            padding: 5px;
+            list-style: none;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            /* color:black; */
+
+        }
+
+        header .linkbx li:hover {
+            border-bottom: 2px solid #5c2a9d;
+            transition: 0.1s step-end ;
+        }
+
+        .container {
+            position: relaative;
+
+        }
+
+        .container .mainbx {
+            position: relative;
+            width: 50%;
+            height: auto;
+            min-height: 85vh;
+            margin: auto;
+            border: 1px solid #fff;
+            background: #fff;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 5px 40px 50px 2px #888888
+        }
+        @media only screen and (max-width: 600px) {
+            .container .mainbx{
+                position: relative;
+                width: 79%;
+                margin: 7%;
+                margin-top: 10px;
+
+            }
+            #lable {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                margin-top: -33px;
+            }
+           
+
+            
+        }
+        @media only screen and (max-width:480px){
+            .container .mainbx .searchbx input{
+                position: relative;
+                width: 230px;
+            }
+        }
+        @media only screen and (max-width:360px){
+            header .logobx .logo img{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 15px;
+                height: 15px;
+                top: 5px;
+               
+                
+            }
+            header .logobx .logo a{
+                position: relative;
+                text-decoration: none;
+                font-size: 0.9rem;
+                top: 5px;
+                font-weight: 400;
+                color: #251f44;
+
+            }
+            header .logobx{
+                left: 0px;
+            }
+            header .linkbx{
+                
+                width: 150px;
+                height: 100%;
+                
+
+            }
+            header .linkbx ul{
+                margin-top: 4px;
+                
+            }
+            header .linkbx li {
+                position: relative;
+                margin: 8px;
+                padding: 0px;
+                list-style: none;
+                font-size: 0.9rem;
+                font-weight: 300;
+                cursor: pointer;
+                top: 5px;
+            }
+            .container .mainbx .searchbx input {
+                position: relative;
+                /* display: flex; */
+                width: 185px;
+                height: 40px;
+                outline: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border: 1.2px solid #fff;
+                border-radius: 25px;
+                font-size: 1rem;
+                box-shadow: -1px -1px 3px 2px lightgrey;
+            }
+            .container .mainbx .searchbx button {
+                position: relative;
+                height: 40px;
+                width: 65px;
+                margin-left: 10px;
+                border-radius: 20px;
+                border: none;
+                outline: none;
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: #fff;
+                cursor: pointer;
+                background: #ffcd3c;
+                box-shadow: 1px 1px 20px 2px lightgrey;
+            }
+            #lable {
+                position: relative;
+                display: flex;
+                /* top: 0px; */
+                justify-content: center;
+                margin-top: -15px;
+            }
+
+        }
+
+        .container .mainbx .searchbx {
+            position: relative;
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid red; */
+        }
+
+        .container .mainbx .searchbx input {
+            position: relative;
+            width: 350px;
+            height: 40px;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid  lightgrey;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-shadow: inset 0px 0px 2px 0px lightgrey;
+        }
+
+        .container .mainbx .searchbx button {
+            position: relative;
+            height: 40px;
+            width: 80px;
+            margin-left: 10px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #251f44;
+            letter-spacing: 2px;
+            cursor: pointer;
+            background:#d3dbff;
+            box-shadow: 1px 1px 20px 2px lightgrey;
+
+        }
+
+        .container .mainbx .content {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            /* border: 1px solid red; */
+
+        }
+
+        .container .mainbx .content .list {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            height: 60px;
+            left: 60px;
+            padding: 10px;
+            margin-top: 5px;
+            /* border: 1px solid brown; */
+            border-radius: 5px;
+            box-shadow: 0px 1px 5px 2px lightgrey;
+        }
+        @media only screen and (max-width: 720px){
+            .container .mainbx .content .list{
+                left: 34px;
+            }
+            .container .mainbx .content .list ul{
+                font-size: 1rem;
+            }
+            .container .mainbx .content .list button{
+                height: 32px;
+                width: 60px;
+            }
+        }
+
+        .container .mainbx .content .list ul {
+            position: relative;
+            list-style: none;
+            font-size: 1.5rem;
+        }
+
+        .container .mainbx .content .list button {
+            position: relative;
+            height: 35px;
+            width: 70px;
+            right: 10px;
+            font-size: 0.9rem;
+            padding: 5px;
+            border: 1.3px solid #d92027;
+            background: none;
+            cursor: pointer;
+            letter-spacing: 5;
+            color: black;
+            border-radius: 5px;
+        }
+
+        .container .mainbx .content .list button:hover {
+            position: relative;
+            background: #d92027;
+            color: #fff;
+            transition: 0.2s ease-in-out;
+
+        }
+
+        #lable {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <div class="logobx">
+            <div class="logo">
+                <img src="{% static 'task\icon.png' %}">
+                <a href="#">To-Do app</a>
+            </div>
+        </div>
+        <div class="linkbx">
+            <ul>
+                {% if user.is_authenticated %}
+                <!-- <li style="font-size: 1rem; font: weight 500;">Hello,{{user.username}}</li> -->
+                <p >Hello,{{user.username}}</p>
+                <li class="link"><a href="accounts/logout" style="text-decoration: none; color:none;">Log Out</a></li>
+                {% else %}
+                <li class="link"><a href="accounts/login" style="text-decoration: none; color:none;">Log In</a></li> 
+                <li class="link"><a href="accounts/register" style="text-decoration: none; color:none;">Register</a></li>      
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="mainbx">
+            <form class="form-inline" action="/" method="POST">
+                {% csrf_token %}
+                <div class="searchbx">
+                    <input class="search " type="text" placeholder=" type here..." {{ form.title }} <button
+                        name="Create Task">Add</button>
+                </div>
+            </form>
+            {% for task in task %}
+            <div class="content">
+                <div class="list">
+                    <ul>
+                        <li>{{ task }}</li>
+                    </ul>
+                    <a href="{% url 'delete' task.id %}"><button>Delete</button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <label id="lable">Copyright ©2020 To-Do app </label>
+    </div>
+
+</body>
+
+</html>
